@@ -1,0 +1,12 @@
+{% for dish in dishes %}
+    Id: {{dish.id}}<br>
+    Name: {{dish.name}}<br>
+    Order: {{dish.order}}<br>
+    Spicy: {{dish.spicy}}<br>
+    Description Pol: {{dish.description_pol}}<br>
+    Description Eng: {{dish.description_eng}}<br>
+    <img src="http://www.hindusfood.pl/images/menu/{{dish.picture_file}}"><br>
+    Is_wege: {{dish.is_wege}}<br>
+    Is_cooked_today: {{dish.is_cooked_today}}<br>
+    <hr>
+{% endfor %}
