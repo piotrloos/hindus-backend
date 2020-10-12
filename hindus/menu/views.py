@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView
 from hindus.menu.models import Dish
@@ -6,12 +7,19 @@ from hindus.menu.menu_init import MENU_INIT
 
 class MenuListView(ListView):
     model = Dish
-    template_name = 'menu_item.html'
+    template_name = 'menu_list.html'
     context_object_name = 'dishes'
     ordering = 'pk'
 
     def get_queryset(self):
         return super().get_queryset().filter(is_cooked_today=True)
+
+
+class MenuEditView(ListView):
+    model = Dish
+    template_name = 'menu_list.html'
+    context_object_name = 'dishes'
+    ordering = 'pk'
 
 
 def menu_init_view(request):
@@ -36,11 +44,11 @@ def menu_init_view(request):
         print("Saved object {dish} to database.".format(dish=dish))
 
     query_results = Dish.objects.all()
-    return render(request, template_name="menu_item.html", context={'dishes': query_results})
+    return render(request, template_name="menu_list.html", context={'dishes': query_results})
 
 
 def menu_switch(request, pk):
     dish = Dish.objects.get(pk=pk)
     dish.is_cooked_today = not dish.is_cooked_today
     dish.save()
-    return render(request, template_name="menu_item.html", context={'dishes': [dish]})
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

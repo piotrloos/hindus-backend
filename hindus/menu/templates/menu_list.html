@@ -1,0 +1,15 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+        <div style="display: flex; flex-flow: row wrap; flex; justify-content: center;">
+            {% for dish in dishes %}
+                {% include 'menu_item.html' %}
+            {% endfor %}
+        </div>
+    </body>
+</html>
