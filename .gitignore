@@ -138,3 +138,6 @@ dmypy.json
 
 # Virtual Env
 hindus-venv/
+
+# Migrations
+/hindus/*/migrations/
