@@ -1,6 +1,14 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from hindus.locations.models import Location, City
 from hindus.locations.locations_init import LOCATIONS_INIT
+
+
+class LocationListView(ListView):
+    model = Location
+    template_name = 'locations_list.html'
+    context_object_name = 'locations'
+    ordering = 'order'
 
 
 def locations_init_view(request):
