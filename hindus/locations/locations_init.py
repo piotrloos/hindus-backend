@@ -1,4 +1,4 @@
-LOCATIONS_INIT = [
+TRAILERS_INIT = [
     {
         'order': 1,
         'name': "Hindus - Lipowa 7",

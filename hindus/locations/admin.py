@@ -1,6 +1,6 @@
 from django.contrib import admin
-from hindus.locations.models import Location, City, DailyMenu
+from hindus.locations.models import City, Trailer, Foodtruck
 
-admin.site.register(Location)
 admin.site.register(City)
-admin.site.register(DailyMenu)
+admin.site.register(Trailer)
+admin.site.register(Foodtruck)

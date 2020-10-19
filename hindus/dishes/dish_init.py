@@ -1,4 +1,4 @@
-MENU_INIT = [
+DISH_INIT = [
     {
         'order': 1,
         'name': "Chicken vindaloo",

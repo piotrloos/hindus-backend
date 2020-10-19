@@ -1,39 +1,45 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView
-from datetime import date
-from hindus.locations.models import Location, DailyMenu
-from hindus.locations.locations_init import LOCATIONS_INIT
+from django.views.generic import ListView  # , UpdateView
+from hindus.locations.models import Trailer
+from hindus.locations.locations_init import TRAILERS_INIT
+from hindus.menu.models import TrailerMenu
 
 
 class LocationListView(ListView):
-    model = Location
+    model = Trailer
     template_name = 'locations_list.html'
     context_object_name = 'locations'
     ordering = 'order'
 
-    def get_queryset(self):
-        return super().get_queryset().filter(serving_date=date.today())
+    # def get_queryset(self):
+    #     return super().get_queryset().filter(serving_date=date.today())
 
 
-def locations_init_view(request):
+class LocationMenuView(ListView):
+    model = TrailerMenu
+    template_name = 'locations_list.html'
+    context_object_name = 'locations'
 
-    Location.objects.all().delete()
-    print("Deleted all objects in database.")
 
-    for location_init in LOCATIONS_INIT:
+def trailers_init_view(request):
 
-        location = Location()
-        for key, value in location_init.items():
-            location.__setattr__(key, value)
+    Trailer.objects.all().delete()
+    print("Deleted all Trailers objects in database.")
 
-        location.save()
-        print("Saved object {location} to database.".format(location=location))
+    for trailer_init in TRAILERS_INIT:
 
-    query_results = Location.objects.all()
+        trailer = Trailer()
+        for key, value in trailer_init.items():
+            trailer.__setattr__(key, value)
+
+        trailer.save()
+        print("Saved object {trailer} to database.".format(trailer=trailer))
+
+    query_results = Trailer.objects.all()
     return render(request, template_name="locations_list.html", context={'locations': query_results})
 
-
-class DailyMenuUpdateView(UpdateView):
-    model = DailyMenu
-    fields = ['serving_date']
-    template_name = 'dailymenu_form.html'
+#
+# class DailyMenuUpdateView(UpdateView):
+#     model = DailyMenu
+#     fields = ['serving_date']
+#     template_name = 'dailymenu_form.html'

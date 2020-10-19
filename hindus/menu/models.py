@@ -1,21 +1,35 @@
 from django.db import models
-from hindus.menu.choices import Spicy
+from django.db.models.deletion import PROTECT
+from datetime import date
+from hindus.dishes.models import Dish
+from hindus.locations.models import Trailer, Foodtruck
 
 
-class Dish(models.Model):
+class TrailerMenu(models.Model):
 
-    order = models.IntegerField(default=0, unique=True)
-    name = models.CharField(max_length=64)
-    spicy = models.IntegerField(default=1, choices=Spicy.CHOICES)
-    description_pol = models.CharField(max_length=256, default="")
-    description_eng = models.CharField(max_length=256, default="")
-    picture_file = models.CharField(max_length=128)
-    is_vegetarian = models.BooleanField(default=False)
-    is_cooked_today = models.BooleanField(default=False)
+    objects = models.Manager()
+
+    serving_date = models.DateField(default=date.today)
+    trailer = models.ForeignKey(Trailer, on_delete=PROTECT, unique_for_date="serving_date", related_name='menu')
+    dishes = models.ManyToManyField(Dish, blank=True, related_name='trailer_menu')
 
     def __str__(self):
-        return "[{id}] {name}".format(id=self.pk, name=self.name)
+        return "[{id}] {date} {trailer}".format(id=self.pk, date=self.serving_date, trailer=self.trailer)
 
     class Meta:
-        verbose_name_plural = "Dishes"
+        verbose_name_plural = "Trailers Menu"
 
+
+class FoodtruckMenu(models.Model):
+
+    objects = models.Manager()
+
+    serving_date = models.DateField(default=date.today)
+    foodtruck = models.ForeignKey(Foodtruck, on_delete=PROTECT, unique_for_date="serving_date", related_name='menu')
+    dishes = models.ManyToManyField(Dish, blank=True, related_name='foodtruck_menu')
+
+    def __str__(self):
+        return "[{id}] {date} {foodtruck}".format(id=self.pk, date=self.serving_date, foodtruck=self.foodtruck)
+
+    class Meta:
+        verbose_name_plural = "Foodtrucks Menu"

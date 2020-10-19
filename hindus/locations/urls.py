@@ -1,10 +1,10 @@
 from django.urls import path
-from hindus.locations.views import LocationListView, locations_init_view, DailyMenuUpdateView
+from hindus.locations.views import LocationListView, LocationMenuView, trailers_init_view
 
 app_name = 'locations'
 
 urlpatterns = [
     path('', LocationListView.as_view(), name='list'),
-    path('init', locations_init_view, name='init'),
-    path('dailyedit/<int:pk>', DailyMenuUpdateView.as_view(), name='dailymenuedit'),
+    path('<location>/menu', LocationMenuView.as_view(), name='menu'),
+    path('init', trailers_init_view, name='init'),
 ]
