@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from hindus.locations.models import Location, City
+from django.views.generic import ListView, UpdateView
+from datetime import date
+from hindus.locations.models import Location, DailyMenu
 from hindus.locations.locations_init import LOCATIONS_INIT
 
 
@@ -9,6 +10,9 @@ class LocationListView(ListView):
     template_name = 'locations_list.html'
     context_object_name = 'locations'
     ordering = 'order'
+
+    def get_queryset(self):
+        return super().get_queryset().filter(serving_date=date.today())
 
 
 def locations_init_view(request):
@@ -27,3 +31,9 @@ def locations_init_view(request):
 
     query_results = Location.objects.all()
     return render(request, template_name="locations_list.html", context={'locations': query_results})
+
+
+class DailyMenuUpdateView(UpdateView):
+    model = DailyMenu
+    fields = ['serving_date']
+    template_name = 'dailymenu_form.html'

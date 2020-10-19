@@ -1,5 +1,4 @@
 from django.contrib import admin
-from hindus.menu.models import Dish, DailyMenu
+from hindus.menu.models import Dish
 
 admin.site.register(Dish)
-admin.site.register(DailyMenu)

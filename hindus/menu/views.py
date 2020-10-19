@@ -9,7 +9,7 @@ class MenuListView(ListView):
     model = Dish
     template_name = 'menu_list.html'
     context_object_name = 'dishes'
-    ordering = 'pk'
+    ordering = 'order'
 
     def get_queryset(self):
         return super().get_queryset().filter(is_cooked_today=True)
@@ -19,7 +19,7 @@ class MenuEditView(ListView):
     model = Dish
     template_name = 'menu_list.html'
     context_object_name = 'dishes'
-    ordering = 'pk'
+    ordering = 'order'
 
 
 def menu_init_view(request):
@@ -37,7 +37,7 @@ def menu_init_view(request):
         dish.description_pol = dish_init[3]
         dish.description_eng = dish_init[4]
         dish.picture_file = dish_init[5]
-        dish.is_wege = dish_init[6]
+        dish.is_vegetarian = dish_init[6]
         dish.is_cooked_today = False
 
         dish.save()
