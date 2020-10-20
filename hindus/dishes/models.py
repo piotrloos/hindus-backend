@@ -6,7 +6,7 @@ class Dish(models.Model):
 
     objects = models.Manager()
 
-    order = models.IntegerField(default=0, unique=True)
+    order = models.PositiveIntegerField(default=0, unique=True)
     name = models.CharField(max_length=64)
     spicy = models.IntegerField(default=1, choices=Spicy.CHOICES)
     description_pol = models.CharField(max_length=256, default="")
@@ -18,4 +18,5 @@ class Dish(models.Model):
         return "[{id}] {name}".format(id=self.pk, name=self.name)
 
     class Meta:
-        verbose_name_plural = "Dishes"
+        verbose_name_plural = "dishes"
+        ordering = ['order']

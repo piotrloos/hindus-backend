@@ -17,7 +17,8 @@ class TrailerMenu(models.Model):
         return "[{id}] {date} {trailer}".format(id=self.pk, date=self.serving_date, trailer=self.trailer)
 
     class Meta:
-        verbose_name_plural = "Trailers Menu"
+        verbose_name_plural = "trailer menus"
+        ordering = ['serving_date', 'trailer']
 
 
 class FoodtruckMenu(models.Model):
@@ -32,4 +33,5 @@ class FoodtruckMenu(models.Model):
         return "[{id}] {date} {foodtruck}".format(id=self.pk, date=self.serving_date, foodtruck=self.foodtruck)
 
     class Meta:
-        verbose_name_plural = "Foodtrucks Menu"
+        verbose_name_plural = "foodtruck menus"
+        ordering = ['serving_date', 'foodtruck']
