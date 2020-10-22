@@ -7,8 +7,8 @@ from hindus.menu.models import TrailerMenu
 
 class LocationListView(ListView):
     model = Trailer
-    template_name = 'locations_list.html'
-    context_object_name = 'locations'
+    template_name = 'trailers_list.html'
+    context_object_name = 'trailers'
     ordering = 'order'
 
     # def get_queryset(self):

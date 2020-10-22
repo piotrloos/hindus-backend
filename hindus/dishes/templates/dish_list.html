@@ -1,15 +1,13 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    </head>
+{% block content %}
 
-    <body>
-        <div style="display: flex; flex-flow: row wrap; flex; justify-content: center;">
-            {% for dish in dishes %}
-                {% include 'dish_item.html' %}
-            {% endfor %}
-        </div>
-    </body>
-</html>
+    <div style="display: flex; flex-flow: row wrap; flex; justify-content: center;">
+        {% for dish in dishes %}
+            {% include 'dish_item.html' %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

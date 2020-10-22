@@ -1,0 +1,13 @@
+{% load static %}
+
+<div id="headercontainer">
+	<img src="{% static 'logo_hindus_www.png' %}" />
+	<nav>
+		<ul>
+			<li><a class="menulink anchorLink" href="/menu">Menu</a></li>
+			<li><a class="lokalizacjelink anchorLink" href="{% url 'locations:list' %}">Lokalizacje</a></li>
+			<li><a class="contactlink anchorLink" href="/kontakt">Kontakt</a></li>
+			<li><a class="aboutlink anchorLink" href="/catering">Catering</a></li>
+		</ul>
+	</nav>
+</div>

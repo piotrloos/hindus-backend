@@ -1,10 +1,4 @@
-<div style="opacity:
-    {% if dish.is_cooked_today %}
-        1
-    {% else %}
-        0.5
-    {% endif %}
-;">
+<div>
     Id: <b>{{dish.id}}</b><br>
     Name: <b>{{dish.name}}</b><br>
 <!--    Order: {{dish.order}}<br>-->
@@ -12,6 +6,6 @@
 <!--    Description Pol: {{dish.description_pol}}<br>-->
 <!--    Description Eng: {{dish.description_eng}}<br>-->
     <img src="http://www.hindusfood.pl/images/menu/{{dish.picture_file}}"><br>
-<!--    Is_vegetarian: {{dish.is_vegetarian}}<br>-->
+    Is_vegetarian: {{dish.is_vegetarian}}<br>
     <br>
 </div>

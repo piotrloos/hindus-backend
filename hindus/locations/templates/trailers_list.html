@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    {% for trailer in trailers %}
+        {% include 'trailer_item.html' %}
+        <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}

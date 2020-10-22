@@ -1,0 +1,12 @@
+<div>
+    {{trailer.name}} ({{trailer.city.name}})<br>
+    {{trailer.address}}<br>
+    Godziny otwarcia:<br>
+    Pon-pt: {{trailer.open_hours_workday}}<br>
+    Sob: {{trailer.open_hours_saturday}}<br>
+    Nd: {{trailer.open_hours_sunday}}<br>
+    Telefon: {{trailer.telephone}}<br>
+    {% comment %}
+    <a href="{% url locations:menu %}">MENU</a>
+    {% endcomment %}
+</div>

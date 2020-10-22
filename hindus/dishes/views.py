@@ -11,7 +11,7 @@ class DishListView(ListView):
     ordering = 'order'
 
     def get_queryset(self):
-        return super().get_queryset().filter(is_cooked_today=True)
+        return super().get_queryset().filter(is_vegetarian=True)
 
 
 class DishEditView(ListView):

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+    <head>
+        <title>Hindus Indian Food - pierwszy indyjski street food w Krakowie!</title>
+<!--        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">-->
+        <link rel="icon" type="image/png" href="{% static 'hindus.png' %}">
+    </head>
+    <body>
+        <header>
+            {% include 'header.html' %}
+        </header>
+        <section id="contentcontainer">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <footer>
+            {% include 'footer.html' %}
+        </footer>
+    </body>
+</html>
