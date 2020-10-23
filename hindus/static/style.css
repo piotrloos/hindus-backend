@@ -48,7 +48,7 @@ h1 a:hover { color: #fff; border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-b
 h2 { padding-left: 125px; font-size: 54px; color: #8b282f; height: 105px; }
 h2 span.sub { font-size: 48px; float: left; color: #4b4b4b; }
 
-h2.lista { background: url(images/hindus.png) no-repeat -10px -10px; }
+h2.lista { background: url(hindus.png) no-repeat -10px -10px; }
 
 h3 { font-size: 48px; float: left; color: #4b4b4b; }
 a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; padding-bottom: 2px; }

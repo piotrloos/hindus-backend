@@ -10,8 +10,8 @@ class DishListView(ListView):
     context_object_name = 'dishes'
     ordering = 'order'
 
-    def get_queryset(self):
-        return super().get_queryset().filter(is_vegetarian=True)
+    # def get_queryset(self):
+        # return super().get_queryset().filter(is_vegetarian=True)
 
 
 class DishEditView(ListView):

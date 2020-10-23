@@ -1,3 +1,5 @@
+{% load static %}
+
 <div>
     Id: <b>{{dish.id}}</b><br>
     Name: <b>{{dish.name}}</b><br>
@@ -6,6 +8,7 @@
 <!--    Description Pol: {{dish.description_pol}}<br>-->
 <!--    Description Eng: {{dish.description_eng}}<br>-->
     <img src="http://www.hindusfood.pl/images/menu/{{dish.picture_file}}"><br>
+<!--    <img src="{% static 'dishes/{{dish.picture_file}}' %}" />-->
     Is_vegetarian: {{dish.is_vegetarian}}<br>
     <br>
 </div>
