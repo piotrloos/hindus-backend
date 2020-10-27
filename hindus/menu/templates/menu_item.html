@@ -1,0 +1,13 @@
+{% load static %}
+
+<div>
+    Id: <b>{{dish.id}}</b><br>
+    Name: <b>{{dish.name}}</b><br>
+<!--    Order: {{dish.order}}<br>-->
+<!--    Spicy: {{dish.spicy}}<br>-->
+<!--    Description Pol: {{dish.description_pol}}<br>-->
+<!--    Description Eng: {{dish.description_eng}}<br>-->
+    <img src="{% static dish.picture_file %}" /><br>
+    Is_vegetarian: {{dish.is_vegetarian}}<br>
+    <br>
+</div>

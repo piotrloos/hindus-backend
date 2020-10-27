@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dishes/', include('hindus.dishes.urls')),
     path('locations/', include('hindus.locations.urls')),
+    path('menu/', include('hindus.menu.urls')),
 ]

@@ -25,7 +25,7 @@ SECRET_KEY = 'albi!vl4)z#fo+u+t_i436q=9$*_b&o8#=x@)*#ylkgb@04=4k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,7 +125,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'hindus' / 'static/',
+    BASE_DIR / 'hindus' / 'static',
+    BASE_DIR / 'hindus' / 'static' / 'dishes',
 ]
 
 STATICFILES_FINDERS = [

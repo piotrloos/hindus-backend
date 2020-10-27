@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br><br><br><br><br><br>
+    <p>Menu na dzień <b>{{serving_date}}</b> dla lokalizacji <b>{{trailer_name}}</b>:</p>
+    <div style="display: flex; flex-flow: row wrap; flex; justify-content: center;">
+        {% for dish in dishes %}
+            {% include 'menu_item.html' %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -5,5 +5,4 @@ app_name = 'locations'
 
 urlpatterns = [
     path('', LocationListView.as_view(), name='list'),
-    path('<location_id>/menu', LocationMenuView.as_view(), name='menu'),
 ]
